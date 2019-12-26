@@ -16,16 +16,15 @@ using NinjaTrader.Strategy;
 namespace NinjaTrader.Strategy
 {
     /// <summary>
-	/// 
+    /// 
     /// SMA 200 Crossover
-	/// 
+    /// 
     /// </summary>
-	/// 
-    [Description("Ninjatrader Stock Investment Strategy for Backtesting - " +
+	[Description("Ninjatrader Stock Investment Strategy for Backtesting - " +
     "I buy the stock when its price crosses above the 200-days moving average from below " +
     "and sell it when its price crosses below the moving average from above.")]
   
-	public class CustomStrategySma200K : Strategy
+    public class CustomStrategySma200K : Strategy
     {
         #region Variables
 
@@ -58,19 +57,17 @@ namespace NinjaTrader.Strategy
 			SMA(SmaFast).Plots[0].Pen.Color = Color.Green;
 			SMA(SmaSlow).Plots[0].Pen.Color = Color.Violet;
 
-            // Strategy starts if we have enough bars
-            BarsRequired = 200;
+			// Strategy starts if we have enough bars
+			BarsRequired = 200;
 
-            // CalculateOnBarClose is set to true and sets the strategy to call the OnBarUpdate() method
-            // below on the close of each bar instead of each incoming tick.
+			// CalculateOnBarClose is set to true and sets the strategy to call the OnBarUpdate() method
+			// below on the close of each bar instead of each incoming tick.
 			CalculateOnBarClose = true;
         }
 
         /// <summary>
-        /// 
         /// SMA Crossover - Called on each bar update event (incoming tick)
-		/// 
-        /// </summary>
+		/// </summary>
         protected override void OnBarUpdate()
         {
             // Long signal
